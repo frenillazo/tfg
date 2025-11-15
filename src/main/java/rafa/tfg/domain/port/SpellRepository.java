@@ -14,7 +14,7 @@ public interface SpellRepository {
 
     Optional<Spell> findById(Long id);
 
-    Optional<Spell> findBySpellId(Long spellId);
+    Optional<Spell> findBySpellId(String spellId);
 
     List<Spell> findAll();
 

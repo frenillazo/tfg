@@ -35,7 +35,7 @@ public class SpellRepositoryAdapter implements SpellRepository {
     }
 
     @Override
-    public Optional<Spell> findBySpellId(Long spellId) {
+    public Optional<Spell> findBySpellId(String spellId) {
         return jpaRepository.findBySpellId(spellId)
                 .map(mapper::toDomain);
     }

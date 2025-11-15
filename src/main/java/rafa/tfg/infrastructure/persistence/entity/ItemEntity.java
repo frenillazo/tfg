@@ -132,4 +132,10 @@ public class ItemEntity {
 
     @Column(name = "percent_spell_vamp_mod")
     private Double percentSpellVampMod;
+
+    @Column(name = "flat_movement_speed_mod")
+    private Double flatMovementSpeedMod;
+
+    @Column(name = "flat_spell_block_mod")
+    private Double flatSpellBlockMod;
 }
