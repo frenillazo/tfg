@@ -61,4 +61,6 @@ public class Item {
     private Double flatMagicDamageMod;
     private Double percentLifeStealMod;
     private Double percentSpellVampMod;
+    private Double flatMovementSpeedMod;
+    private Double flatSpellBlockMod;
 }

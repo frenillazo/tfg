@@ -24,6 +24,7 @@ public class ChampionJsonDTO {
     private List<String> tags;
     private String partype;
     private StatsDTO stats;
+    private List<SpellJsonDTO> spells;  // Lista de habilidades del campeón
 
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)

@@ -42,22 +42,61 @@ public class ItemJsonDTO {
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class StatsDTO {
-        private Double FlatHPPoolMod;
-        private Double FlatMPPoolMod;
-        private Double PercentHPPoolMod;
-        private Double PercentMPPoolMod;
-        private Double FlatHPRegenMod;
-        private Double PercentHPRegenMod;
-        private Double FlatMPRegenMod;
-        private Double PercentMPRegenMod;
-        private Double FlatArmorMod;
-        private Double PercentArmorMod;
-        private Double FlatAttackSpeedMod;
-        private Double PercentAttackSpeedMod;
-        private Double FlatCritChanceMod;
-        private Double FlatPhysicalDamageMod;
-        private Double FlatMagicDamageMod;
-        private Double PercentLifeStealMod;
-        private Double PercentSpellVampMod;
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatHPPoolMod")
+        private Double flatHPPoolMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatMPPoolMod")
+        private Double flatMPPoolMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("PercentHPPoolMod")
+        private Double percentHPPoolMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("PercentMPPoolMod")
+        private Double percentMPPoolMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatHPRegenMod")
+        private Double flatHPRegenMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("PercentHPRegenMod")
+        private Double percentHPRegenMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatMPRegenMod")
+        private Double flatMPRegenMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("PercentMPRegenMod")
+        private Double percentMPRegenMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatArmorMod")
+        private Double flatArmorMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("PercentArmorMod")
+        private Double percentArmorMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatAttackSpeedMod")
+        private Double flatAttackSpeedMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("PercentAttackSpeedMod")
+        private Double percentAttackSpeedMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatCritChanceMod")
+        private Double flatCritChanceMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatPhysicalDamageMod")
+        private Double flatPhysicalDamageMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatMagicDamageMod")
+        private Double flatMagicDamageMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("PercentLifeStealMod")
+        private Double percentLifeStealMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("PercentSpellVampMod")
+        private Double percentSpellVampMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatMovementSpeedMod")
+        private Double flatMovementSpeedMod;
+
+        @com.fasterxml.jackson.annotation.JsonProperty("FlatSpellBlockMod")
+        private Double flatSpellBlockMod;
     }
 }
