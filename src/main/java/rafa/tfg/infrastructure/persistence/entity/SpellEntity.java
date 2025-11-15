@@ -75,7 +75,7 @@ public class SpellEntity {
     private String vars;
 
     // Rango y ammo
-    @Column(name = "range_values", columnDefinition = "TEXT")
+    @Column(name = "range_values")
     private String range;
 
     @Column(name = "range_burn")

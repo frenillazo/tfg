@@ -12,5 +12,5 @@ import java.util.Optional;
 @Repository
 public interface SpellJpaRepository extends JpaRepository<SpellEntity, Long> {
 
-    Optional<SpellEntity> findBySpellId(Long spellId);
+    Optional<SpellEntity> findBySpellId(String spellId);
 }

@@ -29,7 +29,7 @@ public class SpellService {
     }
 
     @Transactional(readOnly = true)
-    public Optional<Spell> findBySpellId(Long spellId) {
+    public Optional<Spell> findBySpellId(String spellId) {
         return spellRepository.findBySpellId(spellId);
     }
 

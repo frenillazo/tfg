@@ -25,7 +25,7 @@ public interface SpellMapper {
     @Mapping(target = "cost", source = "cost", qualifiedByName = "listIntegerToJson")
     @Mapping(target = "effect", source = "effect", qualifiedByName = "listListDoubleToJson")
     @Mapping(target = "effectBurn", source = "effectBurn", qualifiedByName = "listStringToJson")
-    @Mapping(target = "range", source = "range", qualifiedByName = "listIntegerToJson")
+    @Mapping(target = "range", source = "range", qualifiedByName = "listLongToJson")
     SpellEntity toEntity(Spell spell);
 
     @Mapping(target = "levelTipLabels", source = "levelTipLabels", qualifiedByName = "jsonToListString")
@@ -34,7 +34,7 @@ public interface SpellMapper {
     @Mapping(target = "cost", source = "cost", qualifiedByName = "jsonToListInteger")
     @Mapping(target = "effect", source = "effect", qualifiedByName = "jsonToListListDouble")
     @Mapping(target = "effectBurn", source = "effectBurn", qualifiedByName = "jsonToListString")
-    @Mapping(target = "range", source = "range", qualifiedByName = "jsonToListInteger")
+    @Mapping(target = "range", source = "range", qualifiedByName = "jsonToListLong")
     Spell toDomain(SpellEntity entity);
 
     List<Spell> toDomainList(List<SpellEntity> entities);
@@ -61,8 +61,8 @@ public interface SpellMapper {
     }
 
     // Conversiones List<Double> <-> JSON
-    @Named("listDoubleToJson")
-    default String listDoubleToJson(List<Double> list) {
+    @Named("listIntegerToJson")
+    default String listIntegerToJson(List<Integer> list) {
         if (list == null) return null;
         try {
             return OBJECT_MAPPER.writeValueAsString(list);
@@ -81,9 +81,19 @@ public interface SpellMapper {
         }
     }
 
+    @Named("listLongToJson")
+    default String listLongToJson(List<Long> list) {
+        if (list == null) return null;
+        try {
+            return OBJECT_MAPPER.writeValueAsString(list);
+        } catch (JsonProcessingException e) {
+            return null;
+        }
+    }
+
     // Conversiones List<Integer> <-> JSON
-    @Named("listIntegerToJson")
-    default String listIntegerToJson(List<Integer> list) {
+    @Named("listDoubleToJson")
+    default String listDoubleToJson(List<Double> list) {
         if (list == null) return null;
         try {
             return OBJECT_MAPPER.writeValueAsString(list);
@@ -97,6 +107,16 @@ public interface SpellMapper {
         if (json == null || json.isEmpty()) return null;
         try {
             return OBJECT_MAPPER.readValue(json, new TypeReference<List<Integer>>() {});
+        } catch (JsonProcessingException e) {
+            return null;
+        }
+    }
+
+    @Named("jsonToListLong")
+    default List<Long> jsonToListLong(String json) {
+        if (json == null || json.isEmpty()) return null;
+        try {
+            return OBJECT_MAPPER.readValue(json, new TypeReference<List<Long>>() {});
         } catch (JsonProcessingException e) {
             return null;
         }

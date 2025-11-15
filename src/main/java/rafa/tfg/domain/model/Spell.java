@@ -47,7 +47,7 @@ public class Spell {
     private String vars;                     // Variables (JSON serializado)
 
     // Rango y ammo
-    private List<Integer> range;     // Rango por nivel
+    private List<Long> range;     // Rango por nivel
     private String rangeBurn;        // Rango como string
     private String maxAmmo;          // Máximo de ammo
 

@@ -51,7 +51,7 @@ public class SpellJsonDTO {
     @JsonProperty("maxammo")
     private String maxAmmo;
 
-    private List<Integer> range;        // Array de rangos por nivel
+    private List<Long> range;        // Array de rangos por nivel
 
     @JsonProperty("rangeBurn")
     private String rangeBurn;
