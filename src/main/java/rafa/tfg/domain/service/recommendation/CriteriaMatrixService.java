@@ -46,8 +46,8 @@ public class CriteriaMatrixService {
         criteria.put("magicResist", getDoubleValue(item.getFlatSpellBlockMod()));
         criteria.put("health", getDoubleValue(item.getFlatHPPoolMod()));
         criteria.put("cooldownReduction", 0.0); // El CDR ahora es Ability Haste, necesitamos mapear
-        criteria.put("armorPenetration", getDoubleValue(item.getFlatArmorPenetrationMod()));
-        criteria.put("magicPenetration", getDoubleValue(item.getFlatMagicPenetrationMod()));
+        criteria.put("armorPenetration", getDoubleValue(item.getPercentArmorMod()));
+        criteria.put("magicPenetration", getDoubleValue(item.getPercentMPPoolMod()));
         criteria.put("lifeSteal", getDoubleValue(item.getPercentLifeStealMod()) * 100); // Convertir a %
         criteria.put("movementSpeed", calculateMovementSpeed(item));
 
@@ -101,7 +101,7 @@ public class CriteriaMatrixService {
      */
     private double calculateMovementSpeed(Item item) {
         double flatMS = getDoubleValue(item.getFlatMovementSpeedMod());
-        double percentMS = getDoubleValue(item.getPercentMovementSpeedMod()) * 100;
+        double percentMS = getDoubleValue(item.getFlatMovementSpeedMod()) * 100;
         return flatMS + percentMS;
     }
 

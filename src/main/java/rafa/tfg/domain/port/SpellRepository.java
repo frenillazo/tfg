@@ -23,4 +23,6 @@ public interface SpellRepository {
     boolean existsById(Long id);
 
     long count();
+
+    List<Spell> findByChampionId(String championId);
 }

@@ -61,7 +61,8 @@ public class ChampionAnalysisService {
 
         for (Spell spell : championSpells) {
             // Extraer tags de levelTipLabels
-            List<String> levelTipLabels = parseLevelTipLabels(spell.getLevelTipLabels());
+            //List<String> levelTipLabels = parseLevelTipLabels(spell.getLevelTipLabels());
+            List<String> levelTipLabels =spell.getLevelTipLabels();
             allTags.addAll(levelTipLabels);
 
             // Analizar vars para detectar escalados

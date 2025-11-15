@@ -158,7 +158,7 @@ public class EnemyAnalysisService {
             // Si no hay datos, usar heurística basada en tags del campeón
             Champion champion = championRepository.findByChampionId(championName).orElse(null);
             if (champion != null) {
-                String tags = champion.getTags();
+                String tags = String.valueOf(champion.getTags());
                 if (tags != null) {
                     if (tags.contains("Mage") || tags.contains("Support")) {
                         return DamageProfile.MAGICAL;

@@ -63,7 +63,7 @@ public class ItemFilterService {
         // 1. No tiene items en los que se convierte (campo 'into' vacío)
         // 2. O tiene depth >= 3 (usualmente items legendarios/míticos)
 
-        String into = item.getInto();
+        String into = item.getInto() != null ? String.join(",", item.getInto()) : null;
         boolean hasNoUpgrade = (into == null || into.trim().isEmpty() || into.equals("[]"));
 
         Integer depth = item.getDepth();
@@ -123,13 +123,13 @@ public class ItemFilterService {
 
     private boolean hasPhysicalDamageStats(Item item) {
         return hasAdStats(item)
-                || (item.getFlatArmorPenetrationMod() != null && item.getFlatArmorPenetrationMod() > 0)
+                || (item.getPercentArmorMod() != null && item.getPercentArmorMod() > 0)
                 || (item.getPercentLifeStealMod() != null && item.getPercentLifeStealMod() > 0);
     }
 
     private boolean hasMagicDamageStats(Item item) {
         return hasApStats(item)
-                || (item.getFlatMagicPenetrationMod() != null && item.getFlatMagicPenetrationMod() > 0);
+                || (item.getPercentMPPoolMod() != null && item.getPercentMPPoolMod() > 0);
     }
 
     private boolean hasTankStats(Item item) {
@@ -148,6 +148,6 @@ public class ItemFilterService {
 
     private boolean hasUtilityStats(Item item) {
         return (item.getFlatMovementSpeedMod() != null && item.getFlatMovementSpeedMod() > 0)
-                || (item.getPercentMovementSpeedMod() != null && item.getPercentMovementSpeedMod() > 0);
+                || (item.getFlatMovementSpeedMod() != null && item.getFlatMovementSpeedMod() > 0);
     }
 }
