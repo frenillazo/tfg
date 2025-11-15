@@ -26,7 +26,7 @@ public class RunePathEntity {
     @Column(name = "path_id", unique = true, nullable = false)
     private Integer pathId;
 
-    @Column(name = "key", unique = true, nullable = false)
+    @Column(name = "rune_paths_key", unique = true, nullable = false)
     private String key;
 
     @Column(name = "icon")

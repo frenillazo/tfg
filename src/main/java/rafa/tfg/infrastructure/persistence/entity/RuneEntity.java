@@ -24,7 +24,7 @@ public class RuneEntity {
     @Column(name = "rune_id", unique = true, nullable = false)
     private Integer runeId;
 
-    @Column(name = "key", unique = true, nullable = false)
+    @Column(name = "rune_key", unique = true, nullable = false)
     private String key;
 
     @Column(name = "icon")

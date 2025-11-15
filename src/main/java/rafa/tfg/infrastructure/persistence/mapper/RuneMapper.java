@@ -14,10 +14,10 @@ import java.util.List;
 public interface RuneMapper {
 
     @Mapping(target = "runePath", ignore = true)  // Managed by RunePathMapper
-    @Mapping(target = "runePathId", source = "runePath.id")
+   // @Mapping(target = "runePathId", source = "runePath.id")
     RuneEntity toEntity(Rune rune);
 
-    @Mapping(target = "runePathId", source = "runePath.id")
+   // @Mapping(target = "runePathId", source = "runePath.id")
     Rune toDomain(RuneEntity entity);
 
     List<Rune> toDomainList(List<RuneEntity> entities);

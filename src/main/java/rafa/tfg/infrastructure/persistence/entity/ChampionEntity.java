@@ -24,7 +24,7 @@ public class ChampionEntity {
     @Column(name = "champion_id", unique = true, nullable = false)
     private String championId;
 
-    @Column(name = "key")
+    @Column(name = "champion_key")
     private String key;
 
     @Column(name = "name", nullable = false)
