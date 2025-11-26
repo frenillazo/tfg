@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Configuración de Spring Batch para cargar Items desde JSON
@@ -71,6 +72,11 @@ public class ItemBatchConfig {
             ItemJsonDTO itemDTO = entry.getValue();
             log.debug("Processing item: {}", itemDTO.getName());
 
+            if (itemDTO.getMaps() == null || !Boolean.TRUE.equals(itemDTO.getMaps().get("11"))) {
+                // Si maps es null o el mapa 11 no es true, saltamos este item
+                return null;
+            }
+
             return Item.builder()
                     .itemId(itemId)
                     .name(itemDTO.getName())
@@ -87,7 +93,8 @@ public class ItemBatchConfig {
                     .consumed(itemDTO.getConsumed())
                     .stacks(itemDTO.getStacks())
                     .depth(itemDTO.getDepth())
-                    .inStore(itemDTO.getInStore())
+                    .inStore(Optional.ofNullable(itemDTO.getInStore())
+                            .orElse(true))
                     .hideFromAll(itemDTO.getHideFromAll())
                     .requiredChampion(itemDTO.getRequiredChampion())
                     .requiredAlly(itemDTO.getRequiredAlly())

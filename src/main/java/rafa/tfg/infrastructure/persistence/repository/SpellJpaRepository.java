@@ -16,5 +16,5 @@ public interface SpellJpaRepository extends JpaRepository<SpellEntity, Long> {
 
     Optional<SpellEntity> findBySpellId(String spellId);
 
-    List<Spell> findByChampionId(String championId);
+    List<SpellEntity> findByChampionId(String championId);
 }

@@ -44,11 +44,12 @@ public class ItemFilterService {
 
         // Filtrar items
         List<Item> candidateItems = allItems.stream()
-                .filter(item -> isCompleteItem(item))
+                //.filter(item -> isCompleteItem(item))
                 .filter(item -> isPurchasableItem(item))
+                .peek(item -> log.debug("Item {} passed completeness and purchasability filters", item.getName()))
                 .filter(item -> isRelevantForChampion(item, championProfile))
                 .filter(item -> !ownedItemIds.contains(item.getItemId()))
-                .collect(Collectors.toList());
+                .toList();
 
         log.info("Found {} candidate items after filtering", candidateItems.size());
 

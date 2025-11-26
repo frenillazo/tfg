@@ -57,18 +57,18 @@ public class ChampionProfile {
      * Determina el tipo de escalado dominante
      */
     public ChampionScalingType determineScalingType() {
-        double totalScaling = totalAdRatio + totalApRatio;
+        double totalScaling = currentAd + currentAp;
 
         if (totalScaling == 0) {
             return ChampionScalingType.UTILITY;
         }
 
-        double adPercentage = totalAdRatio / totalScaling;
-        double apPercentage = totalApRatio / totalScaling;
+        double adPercentage = currentAd / totalScaling;
+        double apPercentage = currentAp / totalScaling;
 
-        if (adPercentage > 0.7) {
+        if (adPercentage > 0.6) {
             return ChampionScalingType.AD_FOCUSED;
-        } else if (apPercentage > 0.7) {
+        } else if (apPercentage > 0.6) {
             return ChampionScalingType.AP_FOCUSED;
         } else if (totalHealthRatio + totalArmorRatio + totalMrRatio > totalScaling) {
             return ChampionScalingType.TANK;

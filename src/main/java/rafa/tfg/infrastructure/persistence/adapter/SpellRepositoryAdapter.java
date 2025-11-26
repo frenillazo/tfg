@@ -62,6 +62,6 @@ public class SpellRepositoryAdapter implements SpellRepository {
 
     @Override
     public List<Spell> findByChampionId(String championId) {
-        return jpaRepository.findByChampionId(championId);
+        return mapper.toDomainList(jpaRepository.findByChampionId(championId));
     }
 }
