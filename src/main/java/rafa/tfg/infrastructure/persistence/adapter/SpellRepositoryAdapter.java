@@ -59,4 +59,9 @@ public class SpellRepositoryAdapter implements SpellRepository {
     public long count() {
         return jpaRepository.count();
     }
+
+    @Override
+    public List<Spell> findByChampionId(String championId) {
+        return mapper.toDomainList(jpaRepository.findByChampionId(championId));
+    }
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * DTO para leer datos de Item desde JSON
@@ -29,6 +30,7 @@ public class ItemJsonDTO {
     private Boolean inStore;
     private Boolean hideFromAll;
     private Integer specialRecipe;
+    private Map<String, Boolean> maps;
 
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
